@@ -2,6 +2,8 @@
 
 在 Android 上模仿 iOS 微信的底部菜单。
 
+<img src="/screenshots/wcbmenu_demo.png" alt="wcbmenu_demo" title="wcbmenu_demo" width="360" height="640" />
+
 使用方法：
 
         final WCBMenu wcbMenu = new WCBMenu(this);
