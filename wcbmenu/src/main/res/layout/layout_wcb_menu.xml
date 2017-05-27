@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_wcb_menu_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:textColor="@android:color/darker_gray"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#eeeeee"/>
+
+    <ListView
+        android:id="@+id/lv_wcb_menu_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#eeeeee"
+        android:dividerHeight="1dp"
+        android:gravity="center_horizontal"/>
+
+    <View
+        android:id="@+id/v_cancel_divider"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#eeeeee"/>
+
+    <TextView
+        android:id="@+id/tv_wcb_menu_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:textColor="@android:color/black"/>
+
+</LinearLayout>
