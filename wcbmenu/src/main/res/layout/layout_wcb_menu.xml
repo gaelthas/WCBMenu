@@ -13,6 +13,7 @@
         android:textColor="@android:color/darker_gray"/>
 
     <View
+        android:id="@+id/v_title_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#eeeeee"/>

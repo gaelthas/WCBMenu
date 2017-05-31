@@ -105,6 +105,7 @@ public class WCBMenu {
         private MenuListAdapter mMenuListAdapter;
         private ListView mListView;
         private TextView mTvTitle;
+        private View mVTitleDivider;
         private TextView mTvCancel;
         private View mVCancelDivider;
         private PopupWindow mPopupWindow;
@@ -132,6 +133,7 @@ public class WCBMenu {
             mTvTitle = (TextView) popupView.findViewById(R.id.tv_wcb_menu_title);
             mTvTitle.setTextSize(16);
             mTvCancel = (TextView) popupView.findViewById(R.id.tv_wcb_menu_cancel);
+            mVTitleDivider = popupView.findViewById(R.id.v_title_divider);
             mTvCancel.setTextSize(20);
             mVCancelDivider = popupView.findViewById(R.id.v_cancel_divider);
             mTvCancel.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +152,7 @@ public class WCBMenu {
 
             if (mTitleResId == 0 && mTitle == null) {
                 mTvTitle.setVisibility(View.GONE);
+                mVTitleDivider.setVisibility(View.GONE);
             }
 
             if (mCancelResId != 0) {
@@ -181,6 +184,7 @@ public class WCBMenu {
             mTvTitle.setText(title);
             if (mTvTitle.getVisibility() != View.VISIBLE) {
                 mTvTitle.setVisibility(View.VISIBLE);
+                mVTitleDivider.setVisibility(View.VISIBLE);
             }
         }
 
@@ -188,6 +192,7 @@ public class WCBMenu {
             mTvTitle.setText(resId);
             if (mTvTitle.getVisibility() != View.VISIBLE) {
                 mTvTitle.setVisibility(View.VISIBLE);
+                mVTitleDivider.setVisibility(View.VISIBLE);
             }
         }
 
