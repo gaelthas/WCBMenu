@@ -1,5 +1,11 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+version = "1.0.0"
+group = "fv.galois"
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -30,4 +36,49 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+}
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task generateJavadocsJar(type: Jar, dependsOn: generateJavadocs) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+artifacts {
+    archives generateJavadocsJar
+    archives generateSourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    pkg {
+        repo = 'maven'
+        name = 'wcbmenu'
+
+        version {
+            name = '1.0.0'
+            desc = "Wechat Bottom Menu"
+            released = new Date()
+            vcsTag = '1.0.0'
+            licenses = ['Apache-2.0']
+            vcsUrl = 'https://github.com/gaelthas/WCBMenu.git'
+            websiteUrl = 'https://github.com/gaelthas/WCBMenu'
+        }
+    }
+
+    configurations = ['archives']
 }
