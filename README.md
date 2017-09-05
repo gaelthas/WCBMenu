@@ -40,4 +40,4 @@ wcbMenu.setTitle("标题\n标题")
 License
 ============
 
-[WTFPL](http://www.wtfpl.net)
+[WTFPL](https://github.com/gaelthas/WCBMenu/blob/master/LICENSE)
